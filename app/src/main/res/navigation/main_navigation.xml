@@ -17,6 +17,6 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.chatapp.presentation.authentication.LoginFragment"
+        android:name="com.example.chatapp.presentation.screen.authentication.LoginFragment"
         android:label="LoginFragment" />
 </navigation>

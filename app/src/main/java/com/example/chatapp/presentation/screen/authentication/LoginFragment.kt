@@ -1,4 +1,4 @@
-package com.example.chatapp.presentation.authentication
+package com.example.chatapp.presentation.screen.authentication
 
 import androidx.fragment.app.viewModels
 import com.example.chatapp.R
