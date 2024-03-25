@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+<!--    Splash-->
+    <color name="bg_splash_start">#4356B4</color>
+    <color name="bg_splash_end">#3DCFCF</color>
+
+<!--    Login-->
+    <color name="tv_login">#4356B4</color>
+    <color name="tv_email">#999999</color>
+    <color name="disable_login_button">#CACACA</color>
 </resources>
