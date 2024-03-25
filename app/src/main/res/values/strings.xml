@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">ChatApp</string>
+    <string name="app_name">MitChatChit</string>
+    <string name="tv_login_title">Login</string>
+    <string name="tv_email">EMAIL</string>
+    <string name="tv_password">PASSWORD</string>
+    <string name="tv_forgot_password">Forgot password?</string>
+    <string name="tv_register">Don\'t have account? Register now</string>
+
+    <!--    Splash-->
+
 </resources>

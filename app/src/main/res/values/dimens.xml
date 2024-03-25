@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--    common-->
+    <dimen name="common_size_24dp">24dp</dimen>
+    <dimen name="common_size_81dp">81dp</dimen>
+    <dimen name="common_size_48">48dp</dimen>
+
+<!--    Splash-->
+    <dimen name="tv_app_name">30sp</dimen>
+    <dimen name="tv_login_title">38sp</dimen>
+    <dimen name="margin_start">24dp</dimen>
+    <dimen name="margin_end">24dp</dimen>
+    <dimen name="common_size_40dp">40dp</dimen>
+    <dimen name="tv_login_button">20sp</dimen>
+
+
+</resources>
