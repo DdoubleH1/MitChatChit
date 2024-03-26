@@ -5,4 +5,5 @@ import com.example.chatapp.domain.core.navigation.BaseNavigator
 
 interface AppNavigation: BaseNavigator {
     fun openSplashToLoginScreen(bundle: Bundle? = null)
+
 }

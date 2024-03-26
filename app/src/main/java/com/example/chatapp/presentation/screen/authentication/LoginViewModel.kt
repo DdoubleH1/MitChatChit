@@ -1,4 +1,4 @@
-package com.example.chatapp.presentation.authentication
+package com.example.chatapp.presentation.screen.authentication
 
 import com.example.chatapp.domain.core.base.BaseViewModel
 
