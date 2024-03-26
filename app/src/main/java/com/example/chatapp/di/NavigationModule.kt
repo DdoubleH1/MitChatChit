@@ -14,5 +14,5 @@ abstract class NavigationModule {
 
     @Binds
     @ActivityScoped
-    abstract fun provideAppNavigation(appNavigationImpl: AppNavigationImpl): AppNavigation
+    abstract fun provideAppNavigation(navigation: AppNavigationImpl): AppNavigation
 }
