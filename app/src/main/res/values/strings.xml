@@ -1,11 +1,22 @@
 <resources>
     <string name="app_name">MitChatChit</string>
+
+<!--    authentication-->
     <string name="tv_login_title">Login</string>
     <string name="tv_email">EMAIL</string>
     <string name="tv_password">PASSWORD</string>
     <string name="tv_forgot_password">Forgot password?</string>
     <string name="tv_register_full">Don\'t have account? Register now</string>
     <string name="tv_register_now">Register now</string>
+    <string name="tv_register_title">Register</string>
+    <string name="tv_username">USERNAME</string>
+    <string name="tv_policies_and_terms">I agree with policies and terms</string>
+    <string name="tv_policies">policies</string>
+    <string name="tv_terms">terms</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="tv_login_full">Already have account? Login now</string>
+    <string name="tv_login_now">Login now</string>
+
 
 
     <!--    Splash-->

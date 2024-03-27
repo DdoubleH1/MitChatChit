@@ -2,8 +2,20 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.ChatApp" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/primary_color_light</item>
+        <item name="colorAccent">@color/primary_color_light</item>
     </style>
 
-    <style name="Theme.ChatApp" parent="Base.Theme.ChatApp" />
+    <style name="Theme.ChatApp" parent="Base.Theme.ChatApp">
+        <item name="colorPrimary">@color/primary_color_light</item>
+        <item name="colorAccent">@color/primary_color_light</item>
+    </style>
+
+    <style name="authEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:textColorPrimary">@color/primary_color_light</item>
+    </style>
+
 </resources>
