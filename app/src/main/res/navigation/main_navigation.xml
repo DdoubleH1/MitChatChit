@@ -18,5 +18,19 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.chatapp.presentation.screen.authentication.LoginFragment"
-        android:label="LoginFragment" />
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.chatapp.presentation.screen.authentication.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/registerFragment"/>
+    </fragment>
 </navigation>
