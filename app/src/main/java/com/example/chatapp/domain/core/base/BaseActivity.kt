@@ -1,11 +1,6 @@
 package com.example.chatapp.domain.core.base
 
-import android.content.Context
-import android.graphics.Rect
 import android.os.Bundle
-import android.view.MotionEvent
-import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import androidx.databinding.ViewDataBinding
 
 abstract class BaseActivity<BD: ViewDataBinding, VM: BaseViewModel>: BaseActivityNotRequiredViewModel<BD>() {
