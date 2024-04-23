@@ -7,30 +7,38 @@
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.chatapp.presentation.screen.splash.SplashFragment"
-        android:label="SplashFragment" >
+        android:label="SplashFragment">
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/splashFragment"
-            app:popUpToInclusive="true"
-            />
+            app:popUpToInclusive="true" />
+
+
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.chatapp.presentation.screen.authentication.LoginFragment"
-        android:label="LoginFragment" >
+        android:label="LoginFragment">
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.chatapp.presentation.screen.authentication.RegisterFragment"
-        android:label="RegisterFragment" >
+        android:label="RegisterFragment">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/registerFragment"
             app:popUpToInclusive="true"
-            app:popUpTo="@id/registerFragment"/>
+            />
     </fragment>
 </navigation>
