@@ -24,11 +24,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
         Log.e("HoangDH", "$navHostFragment")
         appNavigation.bind(navHostFragment.navController)
     }
-
 
 
     override val layoutId = R.layout.activity_main

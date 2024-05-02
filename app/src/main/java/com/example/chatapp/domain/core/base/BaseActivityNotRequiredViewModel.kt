@@ -6,6 +6,7 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.example.core.utils.dialog.LoadingDialog
 import java.lang.ref.WeakReference
 
 abstract class BaseActivityNotRequiredViewModel<BD: ViewDataBinding> : AppCompatActivity() {
@@ -15,6 +16,7 @@ abstract class BaseActivityNotRequiredViewModel<BD: ViewDataBinding> : AppCompat
 
     @get: LayoutRes
     abstract val layoutId: Int
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +28,15 @@ abstract class BaseActivityNotRequiredViewModel<BD: ViewDataBinding> : AppCompat
         super.onDestroy()
         _binding?.unbind()
         _binding = null
+        LoadingDialog.getInstance(this)?.destroyLoadingDialog()
+    }
+
+    fun showLoading() {
+        LoadingDialog.getInstance(this)?.show()
+    }
+
+    fun hideLoading() {
+        LoadingDialog.getInstance(this)?.hidden()
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {

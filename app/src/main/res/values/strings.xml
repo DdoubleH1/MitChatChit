@@ -16,7 +16,15 @@
     <string name="btn_register">REGISTER</string>
     <string name="tv_login_full">Already have account? Login now</string>
     <string name="tv_login_now">Login now</string>
-
+<!--    exception-->
+    <string name="error_user_not_found">Email is not registered</string>
+    <string name="error_wrong_password">Password is incorrect</string>
+    <string name="error_email_or_password_is_empty">Email or password is empty</string>
+    <string name="error_no_internet">No internet connection</string>
+    <string name="error_login_failed">Login failed</string>
+    <string name="do_not_leave_this_field_blank">Do not leave this field blank</string>
+    <string name="invalid_email">Invalid email address</string>
+    <string name="password_must_be_at_least_8_characters">Password must be at least 8 characters</string>
 
 
     <!--    Splash-->
