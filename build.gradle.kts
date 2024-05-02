@@ -6,5 +6,6 @@ plugins {
     kotlin("kapt") version "1.9.23"
     alias(libs.plugins.jetbrainsKotlinJvm) apply false
     alias(libs.plugins.androidLibrary) apply false
+    alias(libs.plugins.googleServices) apply false
 
 }

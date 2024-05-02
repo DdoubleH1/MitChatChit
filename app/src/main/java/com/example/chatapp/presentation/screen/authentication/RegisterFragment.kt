@@ -1,5 +1,6 @@
 package com.example.chatapp.presentation.screen.authentication
 
+import android.os.Bundle
 import androidx.fragment.app.viewModels
 import com.example.chatapp.R
 import com.example.chatapp.databinding.FragmentRegisterBinding
@@ -20,6 +21,13 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
 
     private val viewModel: RegisterViewModel by viewModels()
     override fun getVM() = viewModel
+
+    override fun initView(savedInstanceState: Bundle?) {
+        super.initView(savedInstanceState)
+        Spanner.spanString(binding.tvLogin, resources.getString(R.string.tv_login_now), resources){
+            appNavigation.openRegisterToLoginScreen()
+        }
+    }
 
     override fun setOnClick() {
         super.setOnClick()

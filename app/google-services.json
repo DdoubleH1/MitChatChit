@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "536857931019",
+    "project_id": "mitchatchit",
+    "storage_bucket": "mitchatchit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536857931019:android:311adb24300687fe55860e",
+        "android_client_info": {
+          "package_name": "com.example.chatapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtz3PqkFXKQ8erRq9xm0OBK5jy8IXg8ns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -19,4 +19,20 @@ class AppNavigationImpl @Inject constructor() : AppNavigation, BaseNavigatorImpl
     override fun openRegisterToLoginScreen(bundle: Bundle?) {
         openScreen(R.id.action_registerFragment_to_loginFragment)
     }
+
+    override fun openLoginToRegisterScreen(bundle: Bundle?) {
+        openScreen(R.id.action_loginFragment_to_registerFragment)
+    }
+
+    override fun openRegisterToLoginScreen(bundle: Bundle?) {
+        openScreen(R.id.action_registerFragment_to_loginFragment)
+    }
+
+    override fun openRegisterToHomeScreen(bundle: Bundle?) {
+        openScreen(R.id.action_registerFragment_to_homeFragment)
+    }
+
+    override fun openLoginToHomeScreen(bundle: Bundle?) {
+        openScreen(R.id.action_loginFragment_to_homeFragment)
+    }
 }

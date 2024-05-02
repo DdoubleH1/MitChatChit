@@ -58,4 +58,14 @@ abstract class BaseFragmentNotRequiredViewModel<BD: ViewDataBinding>(@LayoutRes 
         super.onDestroyView()
     }
 
+    fun showHideLoading(isShow: Boolean) {
+        if (activity != null && activity is BaseActivityNotRequiredViewModel<*>) {
+            if (isShow) {
+                (activity as BaseActivityNotRequiredViewModel<*>?)!!.showLoading()
+            } else {
+                (activity as BaseActivityNotRequiredViewModel<*>?)!!.hideLoading()
+            }
+        }
+    }
+
 }
