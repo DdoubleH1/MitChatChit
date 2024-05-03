@@ -7,6 +7,7 @@ import com.example.chatapp.R
 import com.example.chatapp.databinding.FragmentLoginBinding
 import com.example.chatapp.domain.core.base.BaseFragment
 import com.example.chatapp.presentation.navigation.AppNavigation
+import com.example.chatapp.utils.Prefs
 import com.example.chatapp.utils.Response
 import com.example.chatapp.utils.validate
 import com.google.android.material.snackbar.Snackbar
@@ -14,6 +15,7 @@ import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -39,6 +41,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
         ) {
             appNavigation.openLoginToRegisterScreen()
         }
+        Prefs.getInstance(requireContext()).userEmail?.let {
+            binding.editTextEmail.setText(it)
+        }
+        Timber.tag("HoangDH").e("initView: ${viewModel.validator.value}")
     }
 
     override fun bindingStateView() {
@@ -69,7 +75,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
         viewModel.validator.observe(viewLifecycleOwner) { isValid ->
             binding.btnLogin.isEnabled = isValid
         }
-        if(viewModel.isLoginValid){
+        if (viewModel.isLoginValid) {
             appNavigation.openLoginToHomeScreen()
         }
     }
@@ -139,11 +145,13 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
     override fun setOnClick() {
         super.setOnClick()
         binding.btnLogin.setOnClickListener {
+            Prefs.getInstance(requireContext()).userEmail = binding.editTextEmail.text.toString()
             viewModel.login(
-                binding.editTextEmail.text.toString(),
-                binding.editTextPassword.text.toString()
+                binding.editTextEmail.text.toString().trim(),
+                binding.editTextPassword.text.toString().trim()
             )
         }
+
     }
 
 }
