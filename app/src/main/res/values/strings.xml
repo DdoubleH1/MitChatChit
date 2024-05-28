@@ -25,6 +25,13 @@
     <string name="do_not_leave_this_field_blank">Do not leave this field blank</string>
     <string name="invalid_email">Invalid email address</string>
     <string name="password_must_be_at_least_8_characters">Password must be at least 8 characters</string>
+    <string name="sign_up_success">Sign up successfully</string>
+    <string name="email_already_exists">Email already exists</string>
+    <string name="error_sign_up_failed">Sign up failed</string>
+    <string name="tv_home_title">Message</string>
+    <string name="message_bottom_bar">Message</string>
+    <string name="friend_bottom_bar">Friend</string>
+    <string name="profile_bottom_bar">Profile</string>
 
 
     <!--    Splash-->

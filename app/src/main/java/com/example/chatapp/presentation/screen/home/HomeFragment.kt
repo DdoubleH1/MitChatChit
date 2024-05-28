@@ -6,6 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.chatapp.R
 import com.example.chatapp.databinding.FragmentHomeBinding
 import com.example.chatapp.domain.core.base.BaseFragment
@@ -16,24 +20,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
         fun newInstance() = HomeFragment()
     }
 
+    private lateinit var navController: NavController
     private val viewModel: HomeViewModel by viewModels()
     override fun getVM() = viewModel
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
+        navController = (childFragmentManager.findFragmentById(R.id.nav_host_container) as NavHostFragment).findNavController()
+        binding.bottomNav.setupWithNavController(navController)
     }
 
-    override fun bindingStateView() {
-        super.bindingStateView()
-    }
-
-    override fun bindingAction() {
-        super.bindingAction()
-    }
-
-    override fun setOnClick() {
-        super.setOnClick()
-    }
 
 
 }

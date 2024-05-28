@@ -18,7 +18,9 @@
     <dimen name="tv_login_title">38sp</dimen>
     <dimen name="marginHorizontal">24dp</dimen>
     <dimen name="tv_login_button">20sp</dimen>
-
+    <dimen name="common_text_size_30sp">30sp</dimen>
+    <dimen name="margin_start_home">12dp</dimen>
+    <dimen name="common_size_20dp">20dp</dimen>
 
 
 </resources>
