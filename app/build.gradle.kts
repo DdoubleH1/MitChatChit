@@ -21,6 +21,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("Boolean", "DEBUG", "true")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -38,7 +41,10 @@ android {
     }
 
     //noinspection DataBindingWithoutKapt
-    buildFeatures.dataBinding = true
+    buildFeatures{
+        dataBinding = true
+        buildConfig = true
+    }
 
 }
 
@@ -67,10 +73,14 @@ dependencies {
     kapt(libs.hilt.android.compiler)
 
     //firebase
+    implementation(libs.firebase.database)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.database.ktx)
     implementation(libs.firebase.storage)
+
+    //timber
+    implementation (libs.timber)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

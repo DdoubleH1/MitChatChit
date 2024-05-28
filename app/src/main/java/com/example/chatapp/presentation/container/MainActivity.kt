@@ -1,10 +1,7 @@
 package com.example.chatapp.presentation.container
 
-import android.app.Activity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.example.chatapp.R
 import com.example.chatapp.databinding.ActivityMainBinding
@@ -26,7 +23,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         super.onCreate(savedInstanceState)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
-        Log.e("HoangDH", "$navHostFragment")
         appNavigation.bind(navHostFragment.navController)
     }
 

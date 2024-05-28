@@ -15,11 +15,11 @@ class LoginViewModel @Inject constructor(private val authRepository: AuthReposit
     private var _signInResponse = MutableLiveData<Response<Boolean>>()
     val signInResponse: MutableLiveData<Response<Boolean>> get() = _signInResponse
 
-    private var _validator = MutableLiveData<Boolean>()
+    private var _validator = MutableLiveData(false)
     val validator: MutableLiveData<Boolean> get() = _validator
-
     private var _isEmailValid = false
     private var _isPasswordValid = false
+
 
     fun login(email: String, password: String) {
         viewModelScope.launch {
@@ -28,9 +28,9 @@ class LoginViewModel @Inject constructor(private val authRepository: AuthReposit
         }
     }
 
-    fun setValidState(isEmailValid: Boolean = false, isPasswordValid: Boolean = false) {
-        _isEmailValid = isEmailValid
-        _isPasswordValid = isPasswordValid
+    fun setValidState(isEmailValid: Boolean? = _isEmailValid, isPasswordValid: Boolean? = _isPasswordValid) {
+        _isEmailValid = isEmailValid!!
+        _isPasswordValid = isPasswordValid!!
         _validator.value = (_isEmailValid && _isPasswordValid)
     }
 

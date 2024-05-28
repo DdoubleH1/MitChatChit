@@ -13,6 +13,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.chatapp.R
 import com.example.chatapp.databinding.FragmentHomeBinding
 import com.example.chatapp.domain.core.base.BaseFragment
+import com.example.chatapp.utils.Prefs
+import timber.log.Timber
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
 

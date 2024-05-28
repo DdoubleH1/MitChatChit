@@ -4,13 +4,18 @@ import com.example.chatapp.domain.repository.AuthRepository
 import com.example.chatapp.utils.Response
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.database
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.tasks.await
+import javax.inject.Inject
 
-
-class AuthRepositoryImpl : AuthRepository {
+@ViewModelScoped
+class AuthRepositoryImpl @Inject constructor() : AuthRepository {
 
     private val auth = FirebaseAuth.getInstance()
-    private val database = FirebaseDatabase.getInstance()
+    private val database = Firebase.database
 
     override suspend fun signUp(
         email: String,
@@ -18,17 +23,14 @@ class AuthRepositoryImpl : AuthRepository {
         password: String
     ): Response<Boolean> {
         return try {
-            auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    val uid = auth.currentUser?.uid
-                    val user = hashMapOf(
-                        "uid" to uid,
-                        "userName" to userName,
-                        "email" to email
-                    )
-                    database.reference.child("users").child(uid!!).child("profile").setValue(user)
+            auth.createUserWithEmailAndPassword(email, password).await()
+            database.reference.child("users")
+                .child(auth.currentUser!!.uid)
+                .child("profile")
+                .apply {
+                    child("email").setValue(email)
+                    child("display_name").setValue(userName)
                 }
-            }
             Response.Success(true)
         } catch (e: Exception) {
             Response.Error(e)

@@ -5,14 +5,25 @@ import com.example.chatapp.domain.repository.AuthRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.FragmentComponent
-import dagger.hilt.android.scopes.FragmentScoped
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ActivityScoped
+import dagger.hilt.android.scopes.ViewModelScoped
 
 @Module
-@InstallIn(FragmentComponent::class)
+@InstallIn(ViewModelComponent::class)
 abstract class AuthModule {
 
     @Binds
-    @FragmentScoped
-    abstract fun provideAuthRepository(authRepositoryImpl: AuthRepositoryImpl): AuthRepository
+    @ViewModelScoped
+    abstract fun provideAuthRepository(authRepository: AuthRepositoryImpl): AuthRepository
 }
+
+//@Module
+//@InstallIn(ViewModelComponent::class)
+//class AuthModule {
+//    @Provides
+//    fun provideAuthRepository(): AuthRepository = AuthRepositoryImpl()
+//}
+
+
+

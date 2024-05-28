@@ -93,7 +93,6 @@
                 android:layout_marginHorizontal="@dimen/marginHorizontal"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/bg_login_button"
-                android:backgroundTint="@color/disable_login_button"
                 android:text="@string/tv_login_title"
                 android:textSize="@dimen/tv_login_button"
                 app:layout_constraintEnd_toEndOf="parent"
