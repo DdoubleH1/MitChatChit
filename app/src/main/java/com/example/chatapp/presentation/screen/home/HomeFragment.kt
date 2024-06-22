@@ -18,11 +18,11 @@ import timber.log.Timber
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
 
+    private lateinit var navController: NavController
     companion object {
         fun newInstance() = HomeFragment()
     }
 
-    private lateinit var navController: NavController
     private val viewModel: HomeViewModel by viewModels()
     override fun getVM() = viewModel
 

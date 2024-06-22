@@ -137,6 +137,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
                         }
                     }
                 }
+
+                else -> {
+
+                }
             }
         }
 

@@ -77,7 +77,6 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.database.ktx)
-    implementation(libs.firebase.storage)
 
     //timber
     implementation (libs.timber)
