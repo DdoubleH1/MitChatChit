@@ -6,6 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.chatapp.R
 import com.example.chatapp.databinding.FragmentHomeBinding
 import com.example.chatapp.domain.core.base.BaseFragment
@@ -14,6 +18,7 @@ import timber.log.Timber
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.fragment_home) {
 
+    private lateinit var navController: NavController
     companion object {
         fun newInstance() = HomeFragment()
     }
@@ -23,20 +28,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
-        Timber.tag("HoangDH").e("initView: ${Prefs.getInstance(requireContext()).userEmail}")
+        navController = (childFragmentManager.findFragmentById(R.id.nav_host_container) as NavHostFragment).findNavController()
+        binding.bottomNav.setupWithNavController(navController)
     }
 
-    override fun bindingStateView() {
-        super.bindingStateView()
-    }
-
-    override fun bindingAction() {
-        super.bindingAction()
-    }
-
-    override fun setOnClick() {
-        super.setOnClick()
-    }
 
 
 }

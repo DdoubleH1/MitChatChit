@@ -1,27 +1,27 @@
 [versions]
 agp = "8.3.1"
-firebaseBom = "32.8.1"
+firebaseBom = "33.1.0"
 hiltAndroid = "2.51"
 kotlin = "1.9.0"
-coreKtx = "1.12.0"
+coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
-appcompat = "1.6.1"
-material = "1.11.0"
-activity = "1.8.2"
+appcompat = "1.7.0"
+material = "1.12.0"
+activity = "1.9.0"
 constraintlayout = "2.1.4"
 navigationFragmentKtx = "2.7.7"
 legacySupportV4 = "1.0.0"
-lifecycleLivedataKtx = "2.7.0"
-lifecycleViewmodelKtx = "2.7.0"
-fragmentKtx = "1.6.2"
+lifecycleLivedataKtx = "2.8.1"
+lifecycleViewmodelKtx = "2.8.1"
+fragmentKtx = "1.7.1"
 jetbrainsKotlinJvm = "1.9.23"
-googleService = "4.4.1"
-firebaseAuthKtx = "22.3.1"
-firebaseDatabaseKtx = "20.3.1"
-timber = "4.7.1"
-googleServices = "4.4.1"
+googleService = "4.4.2"
+firebaseAuthKtx = "23.0.0"
+firebaseDatabaseKtx = "21.0.0"
+timber = "5.0.1"
+googleServices = "4.4.2"
 firebaseDatabase = "21.0.0"
 
 
@@ -32,7 +32,6 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltAndroid" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
-hilt-compiler = {group = "com.google.dagger", name = "hilt-compiler", version.ref = "hiltAndroid"}
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
