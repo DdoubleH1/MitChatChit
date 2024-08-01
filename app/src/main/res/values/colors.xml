@@ -14,4 +14,6 @@
     <color name="tv_edit_text_title">#999999</color>
     <color name="disable_login_button">#CACACA</color>
 
+<!--    Home/Message-->
+    <color name="color_divider">#D2D2D2</color>
 </resources>

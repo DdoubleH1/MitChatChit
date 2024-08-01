@@ -1,7 +1,7 @@
 package com.example.chatapp.presentation.screen.home.messages
 
 import androidx.lifecycle.ViewModel
+import com.example.chatapp.domain.core.base.BaseViewModel
 
-class MessageViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class MessageViewModel : BaseViewModel() {
 }
