@@ -32,7 +32,9 @@
     <string name="message_bottom_bar">Message</string>
     <string name="friend_bottom_bar">Friend</string>
     <string name="profile_bottom_bar">Profile</string>
-
+    <string name="text_create_new_message">Create New Message</string>
+    <string name="tv_cancel">Cancel</string>
+    <string name="tv_friend_list">Friend list</string>
 
 
     <!--    Splash-->

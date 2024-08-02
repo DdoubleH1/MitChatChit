@@ -16,4 +16,5 @@
 
 <!--    Home/Message-->
     <color name="color_divider">#D2D2D2</color>
+    <color name="color_ll_selected_friend_">#F6F6F6</color>
 </resources>
