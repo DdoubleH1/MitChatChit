@@ -13,23 +13,16 @@
             android:id="@+id/llTopBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="@dimen/common_size_30dp"
+            android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/ivBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_back_white"
-                android:layout_marginStart="@dimen/common_size_10dp"
-                android:layout_gravity="start"/>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="@string/text_create_new_message"
@@ -41,14 +34,12 @@
                 android:id="@+id/tvCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/common_size_10dp"
                 android:text="@string/tv_cancel"
                 android:textColor="@color/white"
-                android:layout_marginEnd="@dimen/common_size_10dp"
                 android:textSize="16sp" />
 
         </LinearLayout>
-
-
 
         <SearchView
             android:id="@+id/searchView"
@@ -67,43 +58,61 @@
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/common_size_30dp"
             android:background="@drawable/bg_card"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchView"
-            android:orientation="vertical">
+            app:layout_constraintTop_toBottomOf="@id/searchView">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_start_home"
+                android:layout_marginTop="@dimen/common_size_10dp"
                 android:text="@string/tv_friend_list"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginTop="@dimen/common_size_10dp"
-                android:layout_marginStart="@dimen/margin_start_home"
-                />
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvMessageList"
+                android:id="@+id/rvFriendList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="@dimen/margin_start_home"
                 android:layout_marginTop="@dimen/common_size_20dp"
+                tools:listitem="@layout/add_friend_item"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchView"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/searchView" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/llChosenFriend"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_ll_choose_friend"
+            android:orientation="horizontal"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:backgroundTint="@color/color_divider"
-            >
+            app:layout_constraintStart_toStartOf="parent">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvChooseFriend"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/common_size_10dp"
+                android:layout_weight="1"
+                tools:listitem="@layout/choose_friend_item"
+                android:orientation="horizontal" />
+
+            <ImageView
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/common_size_10dp"
+                android:background="@drawable/bg_circle_primary_color"
+                android:padding="15dp"
+                android:src="@drawable/ic_next" />
 
         </LinearLayout>
 

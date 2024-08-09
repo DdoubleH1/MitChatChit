@@ -13,4 +13,8 @@ interface AppNavigation: BaseNavigator {
     fun openRegisterToHomeScreen(bundle: Bundle? = null)
 
     fun openLoginToHomeScreen(bundle: Bundle? = null)
+
+    fun openHomeScreenToCreateGroupScreen(bundle: Bundle? = null)
+
+    fun openCreateGroupScreenToHomeScreen(bundle: Bundle? = null)
 }

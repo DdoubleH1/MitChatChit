@@ -49,8 +49,14 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageViewModel>(R
         super.initView(savedInstanceState)
         binding.rvMessageList.adapter = MessageListAdapter(chatRooms)
         binding.rvMessageList.layoutManager = LinearLayoutManager(context)
-
         binding.swipeRefreshLayout.setColorSchemeResources(R.color.primary_color_light)
+    }
+
+    override fun setOnClick() {
+        super.setOnClick()
+        binding.ivCreateNewMsg.setOnClickListener {
+            appNavigation.openHomeScreenToCreateGroupScreen()
+        }
     }
 
 }

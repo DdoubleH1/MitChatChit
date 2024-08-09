@@ -27,4 +27,13 @@ class AppNavigationImpl @Inject constructor() : AppNavigation, BaseNavigatorImpl
     override fun openLoginToHomeScreen(bundle: Bundle?) {
         openScreen(R.id.action_loginFragment_to_homeFragment)
     }
+
+    override fun openHomeScreenToCreateGroupScreen(bundle: Bundle?) {
+        openScreen(R.id.action_homeFragment_to_createMessageFragment)
+    }
+
+    override fun openCreateGroupScreenToHomeScreen(bundle: Bundle?) {
+        openScreen(R.id.action_createMessageFragment_to_homeFragment)
+    }
+
 }
