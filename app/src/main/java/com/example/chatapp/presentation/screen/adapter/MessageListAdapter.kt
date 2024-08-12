@@ -3,17 +3,27 @@ package com.example.chatapp.presentation.screen.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.chatapp.databinding.MessageRoomItemBinding
 import com.example.chatapp.domain.model.ChatRoom
+import com.example.chatapp.domain.model.Friend
 
 class MessageListAdapter (
-    private val messageList: List<ChatRoom>
+    private val messageList: List<ChatRoom>,
+    private val itemClickListener: ((Friend) -> Unit)? = null
 ) : RecyclerView.Adapter<MessageListAdapter.MessageViewHolder>()  {
 
     inner class MessageViewHolder(itemView: MessageRoomItemBinding) : RecyclerView.ViewHolder(itemView.root) {
+
+        init {
+            itemView.clMessageItem.setOnClickListener {
+                itemClickListener?.invoke(messageList[adapterPosition].senderUser)
+            }
+        }
+
         val profileImage = itemView.ivProfile
         val userName = itemView.tvUserName
         val lastMessage = itemView.tvLastMessage
@@ -40,6 +50,7 @@ class MessageListAdapter (
         holder.userName.text = item.senderUser?.userName
         holder.lastMessage.text = item.lastMessage
         holder.sendDate.text = item.sendDate.toString()
+
     }
 
 }

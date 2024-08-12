@@ -1,11 +1,8 @@
 package com.example.chatapp.presentation.screen.home.messages.createMessage
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatapp.R
 import com.example.chatapp.databinding.FragmentCreateMessageBinding
@@ -42,10 +39,17 @@ class CreateMessageFragment : BaseFragment<FragmentCreateMessageBinding, CreateM
 
         binding.rvFriendList.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = AddFriendListAdapter(generateFriendList(), onChoseFriend = { friend: Friend ->
-                chosenFriendList.add(friend)
-                viewModel.setFriendList(chosenFriendList)
-            })
+            adapter = AddFriendListAdapter(
+                generateFriendList(),
+                onChoseFriend = { friend: Friend ->
+                    chosenFriendList.add(friend)
+                    viewModel.setFriendList(chosenFriendList)
+                },
+                onRemoveFriend = { friend ->
+                    chosenFriendList.remove(friend)
+                    viewModel.setFriendList(chosenFriendList)
+                }
+            )
         }
 
         binding.rvChooseFriend.apply {
@@ -58,8 +62,8 @@ class CreateMessageFragment : BaseFragment<FragmentCreateMessageBinding, CreateM
 
     override fun bindingStateView() {
         super.bindingStateView()
-        viewModel.chosenFriendList.observe(viewLifecycleOwner){ chosenFriendList ->
-            when(chosenFriendList.isEmpty()){
+        viewModel.chosenFriendList.observe(viewLifecycleOwner) { chosenFriendList ->
+            when (chosenFriendList.isEmpty()) {
                 true -> binding.llChosenFriend.visibility = View.GONE
                 else -> binding.llChosenFriend.visibility = View.VISIBLE
             }
@@ -74,8 +78,5 @@ class CreateMessageFragment : BaseFragment<FragmentCreateMessageBinding, CreateM
                 appNavigation.openCreateGroupScreenToHomeScreen()
             }
         }
-
     }
-
-
 }

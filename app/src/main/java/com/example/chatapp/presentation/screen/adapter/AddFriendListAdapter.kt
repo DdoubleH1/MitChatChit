@@ -12,14 +12,18 @@ import com.example.chatapp.domain.model.FriendState
 
 class AddFriendListAdapter(
     private val friendList: List<Friend>,
-    private val onChoseFriend: ((friend: Friend) -> Unit)? = null
+    private val onChoseFriend: ((friend: Friend) -> Unit)? = null,
+    private val onRemoveFriend: ((friend: Friend) -> Unit)? = null
 ) : RecyclerView.Adapter<AddFriendListAdapter.AddFriendViewHolder>() {
-
     inner class AddFriendViewHolder(itemView: AddFriendItemBinding) : RecyclerView.ViewHolder(itemView.root) {
 
         init {
-            itemView.cbAddFriend.setOnCheckedChangeListener { _, _ ->
-                onChoseFriend?.invoke(friendList[adapterPosition])
+            itemView.cbAddFriend.setOnCheckedChangeListener { _, isCheck ->
+                if (!isCheck) {
+                    onRemoveFriend?.invoke(friendList[adapterPosition])
+                } else {
+                    onChoseFriend?.invoke(friendList[adapterPosition])
+                }
             }
         }
 

@@ -12,6 +12,7 @@ import com.example.chatapp.R
 import com.example.chatapp.databinding.FragmentMessageBinding
 import com.example.chatapp.domain.core.base.BaseFragment
 import com.example.chatapp.domain.model.ChatRoom
+import com.example.chatapp.domain.model.Friend
 import com.example.chatapp.domain.model.User
 import com.example.chatapp.presentation.navigation.AppNavigation
 import com.example.chatapp.presentation.screen.adapter.MessageListAdapter
@@ -26,16 +27,16 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageViewModel>(R
     lateinit var appNavigation: AppNavigation
 
     private val chatRooms = listOf(
-        ChatRoom(senderUser = User("User1", "user1@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 1, lastMessage = "Hello!", messageType = 1, sendDate = LocalDateTime.now()),
-        ChatRoom(senderUser = User("User2", "user2@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 0, lastMessage = "How are you?", messageType = 1, sendDate = LocalDateTime.now().minusDays(1)),
-        ChatRoom(senderUser = User("User3", "user3@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 2, lastMessage = "Good morning", messageType = 1, sendDate = LocalDateTime.now().minusHours(2)),
-        ChatRoom(senderUser = User("User4", "user4@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 1, lastMessage = "See you soon", messageType = 1, sendDate = LocalDateTime.now().minusMinutes(30)),
-        ChatRoom(senderUser = User("User5", "user5@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 3, lastMessage = "Thank you!", messageType = 1, sendDate = LocalDateTime.now().minusWeeks(1)),
-        ChatRoom(senderUser = User("User6", "user6@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 0, lastMessage = "Let's meet up", messageType = 1, sendDate = LocalDateTime.now().minusMonths(1)),
-        ChatRoom(senderUser = User("User7", "user7@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 1, lastMessage = "Happy Birthday!", messageType = 1, sendDate = LocalDateTime.now().minusYears(1)),
-        ChatRoom(senderUser = User("User8", "user8@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 2, lastMessage = "Congratulations", messageType = 1, sendDate = LocalDateTime.now().minusDays(10)),
-        ChatRoom(senderUser = User("User9", "user9@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 0, lastMessage = "Good night", messageType = 1, sendDate = LocalDateTime.now().minusHours(5)),
-        ChatRoom(senderUser = User("User10", "user10@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 1, lastMessage = "See you tomorrow", messageType = 1, sendDate = LocalDateTime.now().minusMinutes(10))
+        ChatRoom(senderUser = Friend("User1", "user1@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 1, lastMessage = "Hello!", messageType = 1, sendDate = LocalDateTime.now()),
+        ChatRoom(senderUser = Friend("User2", "user2@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 0, lastMessage = "How are you?", messageType = 1, sendDate = LocalDateTime.now().minusDays(1)),
+        ChatRoom(senderUser = Friend("User3", "user3@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 2, lastMessage = "Good morning", messageType = 1, sendDate = LocalDateTime.now().minusHours(2)),
+        ChatRoom(senderUser = Friend("User4", "user4@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 1, lastMessage = "See you soon", messageType = 1, sendDate = LocalDateTime.now().minusMinutes(30)),
+        ChatRoom(senderUser = Friend("User5", "user5@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 3, lastMessage = "Thank you!", messageType = 1, sendDate = LocalDateTime.now().minusWeeks(1)),
+        ChatRoom(senderUser = Friend("User6", "user6@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 0, lastMessage = "Let's meet up", messageType = 1, sendDate = LocalDateTime.now().minusMonths(1)),
+        ChatRoom(senderUser = Friend("User7", "user7@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 1, lastMessage = "Happy Birthday!", messageType = 1, sendDate = LocalDateTime.now().minusYears(1)),
+        ChatRoom(senderUser = Friend("User8", "user8@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 2, lastMessage = "Congratulations", messageType = 1, sendDate = LocalDateTime.now().minusDays(10)),
+        ChatRoom(senderUser = Friend("User9", "user9@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 0, lastMessage = "Good night", messageType = 1, sendDate = LocalDateTime.now().minusHours(5)),
+        ChatRoom(senderUser = Friend("User10", "user10@example.com", "https://img.idesign.vn/2023/02/idesign_logogg_1.jpg"), read = 1, lastMessage = "See you tomorrow", messageType = 1, sendDate = LocalDateTime.now().minusMinutes(10))
     )
 
     private val viewModel: MessageViewModel by viewModels()
@@ -47,7 +48,7 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageViewModel>(R
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
-        binding.rvMessageList.adapter = MessageListAdapter(chatRooms)
+        binding.rvMessageList.adapter = MessageListAdapter(chatRooms, itemClickListener = {friend ->  })
         binding.rvMessageList.layoutManager = LinearLayoutManager(context)
         binding.swipeRefreshLayout.setColorSchemeResources(R.color.primary_color_light)
     }
@@ -57,6 +58,10 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageViewModel>(R
         binding.ivCreateNewMsg.setOnClickListener {
             appNavigation.openHomeScreenToCreateGroupScreen()
         }
+    }
+
+    private fun navigateToDetailMessageScreen(friend: Friend){
+        val bundle = Bundle()
     }
 
 }
